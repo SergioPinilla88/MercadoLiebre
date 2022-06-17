@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const path = require('path')
-const puerto = 3000;
 const publicPath = path.resolve(__dirname, './public')
 
 //configuraciones
@@ -21,6 +20,6 @@ app.get('/login', (req, res) => {
     res.sendFile(__dirname + "/views/login.html");
 });
 //Levantar servidor
-app.listen(puerto, () => {
-    console.log("Servidor corriendo desde puerto " + puerto);
+app.listen(process.env.port || 3000, () => {
+    //console.log("Servidor corriendo desde puerto " + puerto);
 });
